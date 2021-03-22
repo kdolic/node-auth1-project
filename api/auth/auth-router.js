@@ -81,13 +81,13 @@ router.post('/login', (req, res, next) => {
     "message": "logged out"
   }
 
-  response for not-logged-in users:
+  response for not-logged-in users:+
   status 200
   {
     "message": "no session"
   }
  */
-router.get('/logout', checkUsernameExists, (req, res, next) => {
+router.get('/logout', (req, res, next) => {
   if(req.session && req.session.user) {
     req.session.destroy(err => {
       if (err) {
